@@ -1,72 +1,80 @@
-# Grinder 🔥
+🔥 Grinder
 
-Grinder is the Great Rust Binder, a CLI tool to automatically generate PyO3 bindings for any Rust crate, local or online, fully automated with .pyi type hints and wheel generation.
-
-
----
-
-Features
-
-Automatically binds all functions, structs, enums, constants recursively from a crate.
-
-Supports local crates and crates.io crates.
-
-Generates .pyi for full Python type hints in the same folder.
-
-Builds Python wheels (.whl) and optionally installs them.
-
-Default module name prefixed with py_, customizable with --module-name.
-
-Forward-compatibility enabled by default (-fc), optional.
-
-Fully automated: no manual wrapper coding required.
-
-Supports custom output folders for generated wheels.
-
+Grinder is the Great Rust Binder — a savage CLI that automatically generates PyO3 bindings for any Rust crate (local or crates.io). Zero boilerplate. Zero pain. You get .pyi type hints and Python wheels like magic. 🪄
 
 
 ---
 
-Installation
+🚀 Features
 
-1. Install Grinder wheel (after building with Hatch):
+🧠 Automatically binds functions, structs, enums, constants — recursively
+
+📦 Works with local crates and crates.io crates
+
+🧾 Generates .pyi files for full Python type hints
+
+🛞 Builds Python wheels (.whl) and can auto-install them
+
+🧩 Default module name: py_<crate> (customizable)
+
+⏩ Forward compatibility enabled by default
+
+🤖 Fully automated — no manual wrappers needed
+
+📁 Custom output folders for generated wheels
 
 
+
+---
+
+🧰 Installation
+
+1️⃣ Build & install Grinder
+
+After building with Hatch:
 
 .\build.ps1
 
-2. Install cargo-download for online crates:
-
-
+2️⃣ Install cargo-download (for online crates)
 
 cargo install cargo-download
 
 
 ---
 
-Usage
+🕹️ Usage
 
-Basic local crate
+📂 Local crate
 
 grinder path/to/local/crate
 
-Generates py_<crate_name>/ folder with wheel.
+Generates py_<crate_name>/ with a wheel
 
-Generates <crate_name>.pyi in the crate root.
+Generates <crate_name>.pyi in the crate root
 
 
-Online crate
+
+---
+
+🌐 Crate from crates.io
 
 grinder regex -i
 
-Downloads regex crate from crates.io.
+Downloads the crate from crates.io
 
-Generates PyO3 wrapper, .pyi file, wheel.
+Generates PyO3 bindings
 
--i flag automatically installs the wheel.
+Generates .pyi file
+
+Builds a wheel
+
+-i auto-installs the wheel 🚀
 
 
-Options
+
+---
+
+⚙️ Options
 
 Option	Description
 
@@ -77,70 +85,33 @@ Option	Description
 <crate>	Local path or crate name
 
 
-Examples
 
-# Local crate, default settings
-grinder ./my_crate
+---
 
-# Online crate with auto-install
-grinder regex -i
+🧪 Output Example
 
-# Override module name
-grinder regex --module-name my_regex
-
-# Specify custom output folder
-grinder regex --out C:\Users\Soumalya\Desktop\py_crates
+py_regex/
+├── __init__.py
+├── regex.pyi
+└── py_regex-0.1.0-cp311-cp311-win_amd64.whl
 
 
 ---
 
-Python Usage
+🧠 Philosophy
 
-import py_regex  # Or custom module name
+Rust crate → Python module
 
-r = py_regex.Regex("[0-9]+")
-print(r.is_match("1234"))  # True
-
-# Full autocompletion works thanks to .pyi file
-
-.pyi ensures IDEs see all functions, structs, and classes.
-
-Wheel is Python-importable immediately.
-
+No glue code. No tears. Just Grinder doing unholy levels of automation. 😈
 
 
 ---
 
-Notes
+🧯 Warning
 
-.pyi is always generated in crate root (local) or copied to CWD (online).
-
-Forward-compatibility ABI is enabled by default.
-
-Works with Python 3.9+ and Rust 1.80+.
-
-Recommended to use Hatch for building Grinder itself.
-
+This tool is powerful. If your crate is cursed, Grinder will still bind it. Use responsibly.
 
 
 ---
 
-Building Grinder (PowerShell)
-
-.uild.ps1
-
-Builds with Hatch, generates wheel, and installs it automatically.
-
-
-
----
-
-References
-
-PyO3 Guide
-
-Maturin
-
-Cargo Commands
-
-Hatch Documentation
+🔥 Grind Rust. Ship Python. Repeat.
